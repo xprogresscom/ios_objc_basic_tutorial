@@ -8,20 +8,40 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
+
+@property (nonatomic) NSInteger tapCount;
 
 @end
 
+
 @implementation ViewController
+
+
+#pragma mark Actions
+
+- (void)didTapMyActionButton:(UIButton *)sender {
+    self.tapCount++;
+    
+    NSString *text = [NSString stringWithFormat:@"Number of taps: %ld", (long)self.tapCount];
+    [self.myResultLabel setText:text];
+}
+
+#pragma mark View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.tapCount = 0;
 }
+
+#pragma mark memory management
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
