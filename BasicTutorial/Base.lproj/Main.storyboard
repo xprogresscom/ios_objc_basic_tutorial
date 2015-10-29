@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNL-W8-T1f">
-                                <rect key="frame" x="60" y="75" width="164" height="30"/>
+                                <rect key="frame" x="20" y="75" width="204" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Press me please!"/>
                                 <connections>
@@ -26,7 +26,49 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of taps: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-BJ-4eI">
-                                <rect key="frame" x="60" y="28" width="164" height="21"/>
+                                <rect key="frame" x="20" y="28" width="204" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zrt-be-KLd">
+                                <rect key="frame" x="20" y="135" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="didChangeMySwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="vcT-5R-6C6"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSo-9g-Yqq">
+                                <rect key="frame" x="20" y="293" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="didChangeControlsEnabledSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="RVg-VN-rXL"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1qf-bG-eZC">
+                                <rect key="frame" x="18" y="227" width="208" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="valueChangedOnMySlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="SUv-aQ-lEz"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My switch" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT3-YG-C40">
+                                <rect key="frame" x="77" y="140" width="147" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Controls enabled" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9Q-q6-i5g">
+                                <rect key="frame" x="77" y="298" width="147" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My slider:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnc-Fw-wT6">
+                                <rect key="frame" x="20" y="198" width="204" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,7 +79,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="controlsEnabledSwitch" destination="zSo-9g-Yqq" id="bOx-Pf-S8p"/>
+                        <outlet property="myIncrementalButton" destination="KNL-W8-T1f" id="Xzc-NS-TWd"/>
                         <outlet property="myResultLabel" destination="vf1-BJ-4eI" id="i4Q-82-XVo"/>
+                        <outlet property="mySlider" destination="1qf-bG-eZC" id="2Xw-Qo-WUE"/>
+                        <outlet property="mySwitch" destination="Zrt-be-KLd" id="I8u-ay-mRx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

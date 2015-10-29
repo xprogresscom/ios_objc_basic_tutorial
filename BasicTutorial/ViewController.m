@@ -11,6 +11,12 @@
 
 @interface ViewController ()
 
+@property (nonatomic, weak) IBOutlet UILabel *myResultLabel;
+@property (nonatomic, weak) IBOutlet UIButton *myIncrementalButton;
+@property (nonatomic, weak) IBOutlet UISlider *mySlider;
+@property (nonatomic, weak) IBOutlet UISwitch *mySwitch ;
+@property (nonatomic, weak) IBOutlet UISwitch *controlsEnabledSwitch;
+
 @property (nonatomic) NSInteger tapCount;
 
 @end
@@ -21,11 +27,35 @@
 
 #pragma mark Actions
 
-- (void)didTapMyActionButton:(UIButton *)sender {
+- (IBAction)didTapMyActionButton:(UIButton *)sender {
+    // Add count
     self.tapCount++;
     
+    // Create string
     NSString *text = [NSString stringWithFormat:@"Number of taps: %ld", (long)self.tapCount];
+    // Assign string to the label
     [self.myResultLabel setText:text];
+}
+
+- (IBAction)didChangeMySwitch:(UISwitch *)sender {
+    // Create string
+    NSString *text = [NSString stringWithFormat:@"My switch is: %@", (sender.isOn ? @"On" : @"Off")];
+    // Assign string to the label
+    [self.myResultLabel setText:text];
+}
+
+- (IBAction)valueChangedOnMySlider:(UISlider *)sender {
+    // Create string
+    NSString *text = [NSString stringWithFormat:@"My slider value: %.3f", sender.value];
+    // Assign string to the label
+    [self.myResultLabel setText:text];
+}
+
+- (IBAction)didChangeControlsEnabledSwitch:(UISwitch *)sender {
+    BOOL enable = sender.isOn;
+    [self.myIncrementalButton setEnabled:enable];
+    [self.mySlider setEnabled:enable];
+    [self.mySwitch setEnabled:enable];
 }
 
 #pragma mark View lifecycle
@@ -36,7 +66,7 @@
     self.tapCount = 0;
 }
 
-#pragma mark memory management
+#pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
