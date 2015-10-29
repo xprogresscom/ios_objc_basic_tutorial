@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 
-@interface ViewController ()
+@interface ViewController () <UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *myResultLabel;
 @property (nonatomic, weak) IBOutlet UIButton *myIncrementalButton;
@@ -52,13 +52,8 @@
 }
 
 - (IBAction)didChangeControlsEnabledSwitch:(UISwitch *)sender {
-    BOOL enable = sender.isOn;
-    [self.myIncrementalButton setEnabled:enable];
-    [self.mySlider setEnabled:enable];
-    [self.mySwitch setEnabled:enable];
-    
-    NSString *message = (enable ? @"Controls have been enabled" : @"Controls have been disabled");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    NSString *message = (sender.isOn ? @"Would you like to enable controls?" : @"Would you like to disable controls?");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:message delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     [alert show];
 }
 
@@ -75,6 +70,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Alert view delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        self.controlsEnabledSwitch.on = !self.controlsEnabledSwitch.isOn;
+    }
+    else {
+        BOOL enable = self.controlsEnabledSwitch.isOn;
+        [self.myIncrementalButton setEnabled:enable];
+        [self.mySlider setEnabled:enable];
+        [self.mySwitch setEnabled:enable];
+    }
 }
 
 
