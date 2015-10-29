@@ -32,28 +32,32 @@
     self.tapCount++;
     
     // Create string
-    NSString *text = [NSString stringWithFormat:@"Number of taps: %ld", (long)self.tapCount];
+    NSString *text = [NSString stringWithFormat:NSLocalizedString(@"Number of taps: %ld", @"Number of taps title"), (long)self.tapCount];
     // Assign string to the label
     [self.myResultLabel setText:text];
 }
 
 - (IBAction)didChangeMySwitch:(UISwitch *)sender {
+    BOOL enabled = sender.isOn;
+    
     // Create string
-    NSString *text = [NSString stringWithFormat:@"My switch is: %@", (sender.isOn ? @"On" : @"Off")];
+    NSString *onOff = (enabled ? NSLocalizedString(@"On", @"On") : NSLocalizedString(@"Off", @"Off"));
+    NSString *localizedString = NSLocalizedString(@"My switch is: %@", @"Switch statement");
+    NSString *text = [NSString stringWithFormat:localizedString, onOff];
     // Assign string to the label
     [self.myResultLabel setText:text];
 }
 
 - (IBAction)valueChangedOnMySlider:(UISlider *)sender {
     // Create string
-    NSString *text = [NSString stringWithFormat:@"My slider value: %.3f", sender.value];
+    NSString *text = [NSString stringWithFormat:NSLocalizedString(@"My slider value: %.3f", @"Slider value string"), sender.value];
     // Assign string to the label
     [self.myResultLabel setText:text];
 }
 
 - (IBAction)didChangeControlsEnabledSwitch:(UISwitch *)sender {
     NSString *message = (sender.isOn ? @"Would you like to enable controls?" : @"Would you like to disable controls?");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:message delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation") message:NSLocalizedString(message, @"Confirm message") delegate:self cancelButtonTitle:NSLocalizedString(@"No", @"No") otherButtonTitles:NSLocalizedString(@"Yes", @"Yes"), nil];
     [alert show];
 }
 
