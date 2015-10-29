@@ -414,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BasicTutorial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ridiculous-innovations.BasicTutorial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BasicTutorial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ridiculous-innovations.BasicTutorial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +500,7 @@
 				15D643351BE02D8200A19124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15D643361BE02D8200A19124 /* Build configuration list for PBXNativeTarget "BasicTutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +509,7 @@
 				15D643381BE02D8200A19124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15D643391BE02D8200A19124 /* Build configuration list for PBXNativeTarget "BasicTutorialUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +518,7 @@
 				15D6433B1BE02D8200A19124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

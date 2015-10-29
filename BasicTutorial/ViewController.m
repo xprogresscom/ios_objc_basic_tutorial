@@ -56,6 +56,10 @@
     [self.myIncrementalButton setEnabled:enable];
     [self.mySlider setEnabled:enable];
     [self.mySwitch setEnabled:enable];
+    
+    NSString *message = (enable ? @"Controls have been enabled" : @"Controls have been disabled");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark View lifecycle
