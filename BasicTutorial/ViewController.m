@@ -57,7 +57,7 @@
 
 - (IBAction)didChangeControlsEnabledSwitch:(UISwitch *)sender {
     NSString *message = (sender.isOn ? @"Would you like to enable controls?" : @"Would you like to disable controls?");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirmation", @"Confirmation") message:NSLocalizedString(message, @"Confirm message") delegate:self cancelButtonTitle:NSLocalizedString(@"No", @"No") otherButtonTitles:NSLocalizedString(@"Yes", @"Yes"), nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:message delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     [alert show];
 }
 
@@ -79,10 +79,10 @@
 #pragma mark Alert view delegate methods
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
+    if (buttonIndex == 0) { // If user clicks No than we return the switch to the previous position
         self.controlsEnabledSwitch.on = !self.controlsEnabledSwitch.isOn;
     }
-    else {
+    else { // If they click yes, all the controls will be enabled/disabled accordingly
         BOOL enable = self.controlsEnabledSwitch.isOn;
         [self.myIncrementalButton setEnabled:enable];
         [self.mySlider setEnabled:enable];
